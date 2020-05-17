@@ -5,8 +5,61 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HangedMan"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="500" Width="800">
     <Grid>
-        
+        <StackPanel Orientation="Vertical">
+
+            <StackPanel Orientation="Vertical" >
+                <Grid>
+                    <Button Content="New Game" Height="80" Width="110" FontSize="20" HorizontalAlignment="Left" Margin="10"></Button>
+                    <Button Content="Exit" Height="80" Width="110" FontSize="20" HorizontalAlignment="Right" Margin="10"></Button>
+                </Grid>
+                <Grid>
+                    <StackPanel HorizontalAlignment="Center">
+                    <Label Content="No of tries:" Height="60" Width="200" FontSize="30" ></Label>
+                    <Label Content="Word Input" Height="60" Width="200" FontSize="30" ></Label>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="A" Height="50" Width="50" FontSize="20"  Margin="10"></Button>
+                <Button Content="B" Height="50" Width="50" FontSize="20"  Margin="10"></Button>
+                <Button Content="C" Height="50" Width="50" FontSize="20"  Margin="10"></Button>
+                <Button Content="D" Height="50" Width="50" FontSize="20"  Margin="10"></Button>
+                <Button Content="E" Height="50" Width="50" FontSize="20"  Margin="10"></Button>
+                <Button Content="F" Height="50" Width="50" FontSize="20"  Margin="10"></Button>
+                <Button Content="G" Height="50" Width="50" FontSize="20"  Margin="10"></Button>
+                <Button Content="H" Height="50" Width="50" FontSize="20"  Margin="10"></Button>
+                <Button Content="I" Height="50" Width="50" FontSize="20"  Margin="10"></Button>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="J" Height="50" Width="50" FontSize="20"  Margin="10"></Button>
+                <Button Content="K" Height="50" Width="50" FontSize="20"  Margin="10"></Button>
+                <Button Content="L" Height="50" Width="50" FontSize="20"  Margin="10"></Button>
+                <Button Content="M" Height="50" Width="50" FontSize="20"  Margin="10"></Button>
+                <Button Content="N" Height="50" Width="50" FontSize="20"  Margin="10"></Button>
+                <Button Content="O" Height="50" Width="50" FontSize="20"  Margin="10"></Button>
+                <Button Content="P" Height="50" Width="50" FontSize="20"  Margin="10"></Button>
+                <Button Content="Q" Height="50" Width="50" FontSize="20"  Margin="10"></Button>
+                <Button Content="R" Height="50" Width="50" FontSize="20"  Margin="10"></Button>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="S" Height="50" Width="50" FontSize="20"  Margin="10"></Button>
+                <Button Content="T" Height="50" Width="50" FontSize="20"  Margin="10"></Button>
+                <Button Content="U" Height="50" Width="50" FontSize="20"  Margin="10"></Button>
+                <Button Content="V" Height="50" Width="50" FontSize="20"  Margin="10"></Button>
+                <Button Content="W" Height="50" Width="50" FontSize="20"  Margin="10"></Button>
+                <Button Content="X" Height="50" Width="50" FontSize="20"  Margin="10"></Button>
+                <Button Content="Y" Height="50" Width="50" FontSize="20"  Margin="10"></Button>
+                <Button Content="Z" Height="50" Width="50" FontSize="20"  Margin="10"></Button>
+            </StackPanel>
+
+        </StackPanel>
+        </StackPanel>
+
     </Grid>
 </Window>
