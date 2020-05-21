@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace HangedMan.ViewModels
@@ -24,6 +25,8 @@ namespace HangedMan.ViewModels
             DisableBtn(character);
 
             HiddenWord = gameModel.PropertyMaskedWord;
+
+            #region CommandHandler4LetterBtns
 
             A = new CommandHandler(ABtnMethod, CanExecute);
             B = new CommandHandler(BBtnMethod, CanExecute);
@@ -52,6 +55,13 @@ namespace HangedMan.ViewModels
             Y = new CommandHandler(YBtnMethod, CanExecute);
             Z = new CommandHandler(ZBtnMethod, CanExecute);
 
+            #endregion CommandHandler4LetterBtns
+
+            ExitButton = new CommandHandler(ExitBtnMethod, CanExecute);
+
+            NewGameButton = new CommandHandler(NewGameBtnMethod, CanExecute);
+
+
         }
 
 
@@ -59,6 +69,8 @@ namespace HangedMan.ViewModels
         {
             return true;
         }
+
+        #region ICommandANDIsEnabled4LettersBtns
 
         public string HiddenWord { get; set; }
 
@@ -114,6 +126,14 @@ namespace HangedMan.ViewModels
         public bool IsYEnabled { get; set; } = true;
         public ICommand Z { get; set; }
         public bool IsZEnabled { get; set; } = true;
+
+        #endregion ICommandANDIsEnabled4LettersBtns
+
+        public ICommand ExitButton { get; set; }
+
+        public ICommand NewGameButton { get; set; }
+
+        #region BtnsLetterMethods
 
         private void ABtnMethod()
         {
@@ -325,9 +345,10 @@ namespace HangedMan.ViewModels
             OnPropertyChange(nameof(HiddenWord));
         }
 
+        #endregion BtnsLetterMethods
 
 
-
+        #region SwitchDisableBtnLetters
 
         private void DisableBtn( char character)
         {
@@ -438,9 +459,156 @@ namespace HangedMan.ViewModels
                     OnPropertyChange(nameof(IsZEnabled));
                     break;
 
-            }
-            
+            }    
 
+        }
+        #endregion SwitchDisableBtnLetters
+
+        #region SwitchEnableBtnLetters
+
+        private void EnableBtn(char character)
+        {
+            switch (character)
+            {
+                case 'A':
+                    IsAEnabled = true;
+                    OnPropertyChange(nameof(IsAEnabled));
+                    break;
+                case 'B':
+                    IsBEnabled = true;
+                    OnPropertyChange(nameof(IsBEnabled));
+                    break;
+                case 'C':
+                    IsCEnabled = true;
+                    OnPropertyChange(nameof(IsCEnabled));
+                    break;
+                case 'D':
+                    IsDEnabled = true;
+                    OnPropertyChange(nameof(IsDEnabled));
+                    break;
+                case 'E':
+                    IsEEnabled = true;
+                    OnPropertyChange(nameof(IsEEnabled));
+                    break;
+                case 'F':
+                    IsFEnabled = true;
+                    OnPropertyChange(nameof(IsFEnabled));
+                    break;
+                case 'G':
+                    IsGEnabled = true;
+                    OnPropertyChange(nameof(IsGEnabled));
+                    break;
+                case 'H':
+                    IsHEnabled = true;
+                    OnPropertyChange(nameof(IsHEnabled));
+                    break;
+                case 'I':
+                    IsIEnabled = true;
+                    OnPropertyChange(nameof(IsIEnabled));
+                    break;
+                case 'J':
+                    IsJEnabled = true;
+                    OnPropertyChange(nameof(IsJEnabled));
+                    break;
+                case 'K':
+                    IsKEnabled = true;
+                    OnPropertyChange(nameof(IsKEnabled));
+                    break;
+                case 'L':
+                    IsLEnabled = true;
+                    OnPropertyChange(nameof(IsLEnabled));
+                    break;
+                case 'M':
+                    IsMEnabled = true;
+                    OnPropertyChange(nameof(IsMEnabled));
+                    break;
+                case 'N':
+                    IsNEnabled = true;
+                    OnPropertyChange(nameof(IsNEnabled));
+                    break;
+                case 'O':
+                    IsOEnabled = true;
+                    OnPropertyChange(nameof(IsOEnabled));
+                    break;
+                case 'P':
+                    IsPEnabled = true;
+                    OnPropertyChange(nameof(IsPEnabled));
+                    break;
+                case 'Q':
+                    IsQEnabled = true;
+                    OnPropertyChange(nameof(IsQEnabled));
+                    break;
+                case 'R':
+                    IsREnabled = true;
+                    OnPropertyChange(nameof(IsREnabled));
+                    break;
+                case 'S':
+                    IsSEnabled = true;
+                    OnPropertyChange(nameof(IsSEnabled));
+                    break;
+                case 'T':
+                    IsTEnabled = true;
+                    OnPropertyChange(nameof(IsTEnabled));
+                    break;
+                case 'U':
+                    IsUEnabled = true;
+                    OnPropertyChange(nameof(IsUEnabled));
+                    break;
+                case 'V':
+                    IsVEnabled = true;
+                    OnPropertyChange(nameof(IsVEnabled));
+                    break;
+                case 'W':
+                    IsWEnabled = true;
+                    OnPropertyChange(nameof(IsWEnabled));
+                    break;
+                case 'X':
+                    IsXEnabled = true;
+                    OnPropertyChange(nameof(IsXEnabled));
+                    break;
+                case 'Y':
+                    IsYEnabled = true;
+                    OnPropertyChange(nameof(IsYEnabled));
+                    break;
+                case 'Z':
+                    IsZEnabled = true;
+                    OnPropertyChange(nameof(IsZEnabled));
+                    break;
+
+            }
+
+        }
+        #endregion SwitchEnableBtnLetters
+
+
+        private void NewGameBtnMethod()
+        {
+            //char first = gameModel.GetFirstCharacter();
+
+            //EnableBtn(first);
+            List<char> Enablebtnslist = new List<char>() 
+            { 'A', 'B','C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 
+              'M', 'N', 'O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+           
+            foreach (char btnlet in Enablebtnslist)
+            {
+                EnableBtn(btnlet);
+            }
+
+            this.gameModel = new GameModel("LILIBAFTOASA");
+
+            var character = gameModel.GetFirstCharacter();
+
+            DisableBtn(character);
+
+            HiddenWord = gameModel.PropertyMaskedWord;
+
+            OnPropertyChange(nameof(HiddenWord));
+        }
+
+        private void ExitBtnMethod()
+        {
+            App.Current.Shutdown();
         }
 
 

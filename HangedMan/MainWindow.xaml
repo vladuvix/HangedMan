@@ -11,8 +11,8 @@
 
             <StackPanel Orientation="Vertical" >
                 <Grid>
-                    <Button Content="New Game" Height="80" Width="110" FontSize="20" HorizontalAlignment="Left" Margin="10"></Button>
-                    <Button Content="Exit" Height="80" Width="110" FontSize="20" HorizontalAlignment="Right" Margin="10"></Button>
+                    <Button Command="{Binding NewGameButton}" Content="New Game" Height="80" Width="110" FontSize="20" HorizontalAlignment="Left" Margin="10"></Button>
+                    <Button Command="{Binding ExitButton}" Content="Exit" Height="80" Width="110" FontSize="20" HorizontalAlignment="Right" Margin="10"></Button>
                 </Grid>
                 <Grid>
                     <StackPanel HorizontalAlignment="Center">
