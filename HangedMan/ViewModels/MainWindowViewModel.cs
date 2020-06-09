@@ -3,6 +3,7 @@ using HangedMan.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,16 +16,20 @@ namespace HangedMan.ViewModels
     {
         GameModel gameModel;
         public event PropertyChangedEventHandler PropertyChanged;
+        public string noOfTries { get; set; }
 
         public MainWindowViewModel()
         {
-            gameModel = new GameModel("BUBURUZA");
+            gameModel = new GameModel(PickRdmString());
 
             var character= gameModel.GetFirstCharacter();
 
             DisableBtn(character);
 
             HiddenWord = gameModel.PropertyMaskedWord;
+
+            noOfTries = "Number of tries: " + gameModel.NoOfTries.ToString();
+
 
             #region CommandHandler4LetterBtns
 
@@ -61,9 +66,23 @@ namespace HangedMan.ViewModels
 
             NewGameButton = new CommandHandler(NewGameBtnMethod, CanExecute);
 
-
+           
+           
         }
 
+        private string PickRdmString ()
+        {
+
+            string[] InFormOfStringArray = ConfigurationManager.AppSettings["Words"].Split(',').ToArray();
+            List<string> RdmizeWord = new List<string>(InFormOfStringArray);
+
+            Random r = new Random();
+            int randomNum = r.Next(0, RdmizeWord.Count()-1);
+
+            return RdmizeWord[randomNum];
+        }
+
+      
 
         private bool CanExecute()
         {
@@ -133,218 +152,211 @@ namespace HangedMan.ViewModels
 
         public ICommand NewGameButton { get; set; }
 
+       
+
         #region BtnsLetterMethods
 
         private void ABtnMethod()
         {
             gameModel.RevealCharacter('A');
             IsAEnabled = false;
-            HiddenWord = gameModel.PropertyMaskedWord;
             OnPropertyChange(nameof(IsAEnabled));
-            OnPropertyChange(nameof(HiddenWord));
+            UpdateAfterBtnPress();
         }
 
         private void BBtnMethod()
         {
             gameModel.RevealCharacter('B');
-            IsBEnabled = false;
-            HiddenWord = gameModel.PropertyMaskedWord;
+            IsBEnabled = false;            
             OnPropertyChange(nameof(IsBEnabled));
-            OnPropertyChange(nameof(HiddenWord));
+            UpdateAfterBtnPress();
         }
         private void CBtnMethod()
         {
             gameModel.RevealCharacter('C');
             IsCEnabled = false;
-            HiddenWord = gameModel.PropertyMaskedWord;
             OnPropertyChange(nameof(IsCEnabled));
-            OnPropertyChange(nameof(HiddenWord));
+            UpdateAfterBtnPress();
         }
         private void DBtnMethod()
         {
             gameModel.RevealCharacter('D');
             IsDEnabled = false;
-            HiddenWord = gameModel.PropertyMaskedWord;
             OnPropertyChange(nameof(IsDEnabled));
-            OnPropertyChange(nameof(HiddenWord));
+            UpdateAfterBtnPress();
         }
         private void EBtnMethod()
         {
             gameModel.RevealCharacter('E');
             IsEEnabled = false;
-            HiddenWord = gameModel.PropertyMaskedWord;
             OnPropertyChange(nameof(IsEEnabled));
-            OnPropertyChange(nameof(HiddenWord));
+            UpdateAfterBtnPress();
         }
         private void FBtnMethod()
         {
             gameModel.RevealCharacter('F');
             IsFEnabled = false;
-            HiddenWord = gameModel.PropertyMaskedWord;
             OnPropertyChange(nameof(IsFEnabled));
-            OnPropertyChange(nameof(HiddenWord));
+            UpdateAfterBtnPress();
         }
         private void GBtnMethod()
         {
             gameModel.RevealCharacter('G');
             IsGEnabled = false;
-            HiddenWord = gameModel.PropertyMaskedWord;
             OnPropertyChange(nameof(IsGEnabled));
-            OnPropertyChange(nameof(HiddenWord));
+            UpdateAfterBtnPress();
         }
         private void HBtnMethod()
         {
             gameModel.RevealCharacter('H');
             IsHEnabled = false;
-            HiddenWord = gameModel.PropertyMaskedWord;
             OnPropertyChange(nameof(IsHEnabled));
-            OnPropertyChange(nameof(HiddenWord));
+            UpdateAfterBtnPress();
         }
         private void IBtnMethod()
         {
             gameModel.RevealCharacter('I');
             IsIEnabled = false;
-            HiddenWord = gameModel.PropertyMaskedWord;
             OnPropertyChange(nameof(IsIEnabled));
-            OnPropertyChange(nameof(HiddenWord));
+            UpdateAfterBtnPress();
         }
         private void JBtnMethod()
         {
             gameModel.RevealCharacter('J');
             IsJEnabled = false;
-            HiddenWord = gameModel.PropertyMaskedWord;
             OnPropertyChange(nameof(IsJEnabled));
-            OnPropertyChange(nameof(HiddenWord));
+            UpdateAfterBtnPress();
         }
         private void KBtnMethod()
         {
             gameModel.RevealCharacter('K');
             IsKEnabled = false;
-            HiddenWord = gameModel.PropertyMaskedWord;
             OnPropertyChange(nameof(IsKEnabled));
-            OnPropertyChange(nameof(HiddenWord));
+            UpdateAfterBtnPress();
         }
         private void LBtnMethod()
         {
             gameModel.RevealCharacter('L');
             IsLEnabled = false;
-            HiddenWord = gameModel.PropertyMaskedWord;
             OnPropertyChange(nameof(IsLEnabled));
-            OnPropertyChange(nameof(HiddenWord));
+            UpdateAfterBtnPress();
         }
         private void MBtnMethod()
         {
             gameModel.RevealCharacter('M');
             IsMEnabled = false;
-            HiddenWord = gameModel.PropertyMaskedWord;
             OnPropertyChange(nameof(IsMEnabled));
-            OnPropertyChange(nameof(HiddenWord));
+            UpdateAfterBtnPress();
         }
         private void NBtnMethod()
         {
             gameModel.RevealCharacter('N');
             IsNEnabled = false;
-            HiddenWord = gameModel.PropertyMaskedWord;
             OnPropertyChange(nameof(IsNEnabled));
-            OnPropertyChange(nameof(HiddenWord));
+            UpdateAfterBtnPress();
         }
         private void OBtnMethod()
         {
             gameModel.RevealCharacter('O');
             IsOEnabled = false;
-            HiddenWord = gameModel.PropertyMaskedWord;
             OnPropertyChange(nameof(IsOEnabled));
-            OnPropertyChange(nameof(HiddenWord));
+            UpdateAfterBtnPress();
         }
         private void PBtnMethod()
         {
             gameModel.RevealCharacter('P');
             IsPEnabled = false;
-            HiddenWord = gameModel.PropertyMaskedWord;
             OnPropertyChange(nameof(IsPEnabled));
-            OnPropertyChange(nameof(HiddenWord));
+            UpdateAfterBtnPress();
         }
         private void QBtnMethod()
         {
             gameModel.RevealCharacter('Q');
             IsQEnabled = false;
-            HiddenWord = gameModel.PropertyMaskedWord;
             OnPropertyChange(nameof(IsQEnabled));
-            OnPropertyChange(nameof(HiddenWord));
+            UpdateAfterBtnPress();
         }
         private void RBtnMethod()
         {
             gameModel.RevealCharacter('R');
             IsREnabled = false;
-            HiddenWord = gameModel.PropertyMaskedWord;
             OnPropertyChange(nameof(IsREnabled));
-            OnPropertyChange(nameof(HiddenWord));
+            UpdateAfterBtnPress();
         }
         private void SBtnMethod()
         {
             gameModel.RevealCharacter('S');
             IsSEnabled = false;
-            HiddenWord = gameModel.PropertyMaskedWord;
             OnPropertyChange(nameof(IsSEnabled));
-            OnPropertyChange(nameof(HiddenWord));
+            UpdateAfterBtnPress();
         }
         private void TBtnMethod()
         {
             gameModel.RevealCharacter('T');
             IsTEnabled = false;
-            HiddenWord = gameModel.PropertyMaskedWord;
             OnPropertyChange(nameof(IsTEnabled));
-            OnPropertyChange(nameof(HiddenWord));
+            UpdateAfterBtnPress();
         }
         private void UBtnMethod()
         {
             gameModel.RevealCharacter('U');
             IsUEnabled = false;
-            HiddenWord = gameModel.PropertyMaskedWord;
             OnPropertyChange(nameof(IsUEnabled));
-            OnPropertyChange(nameof(HiddenWord));
+            UpdateAfterBtnPress();
         }
         private void VBtnMethod()
         {
             gameModel.RevealCharacter('V');
             IsVEnabled = false;
-            HiddenWord = gameModel.PropertyMaskedWord;
             OnPropertyChange(nameof(IsVEnabled));
-            OnPropertyChange(nameof(HiddenWord));
+            UpdateAfterBtnPress();
         }
         private void WBtnMethod()
         {
             gameModel.RevealCharacter('W');
             IsWEnabled = false;
-            HiddenWord = gameModel.PropertyMaskedWord;
             OnPropertyChange(nameof(IsWEnabled));
-            OnPropertyChange(nameof(HiddenWord));
+            UpdateAfterBtnPress();
         }
         private void XBtnMethod()
         {
             gameModel.RevealCharacter('X');
             IsXEnabled = false;
-            HiddenWord = gameModel.PropertyMaskedWord;
             OnPropertyChange(nameof(IsXEnabled));
-            OnPropertyChange(nameof(HiddenWord));
+            UpdateAfterBtnPress();
         }
         private void YBtnMethod()
         {
             gameModel.RevealCharacter('Y');
             IsYEnabled = false;
-            HiddenWord = gameModel.PropertyMaskedWord;
             OnPropertyChange(nameof(IsYEnabled));
-            OnPropertyChange(nameof(HiddenWord));
+            UpdateAfterBtnPress();
         }
         private void ZBtnMethod()
         {
             gameModel.RevealCharacter('Z');
             IsZEnabled = false;
-            HiddenWord = gameModel.PropertyMaskedWord;
             OnPropertyChange(nameof(IsZEnabled));
-            OnPropertyChange(nameof(HiddenWord));
+            UpdateAfterBtnPress();
         }
-
+         
+        private void UpdateAfterBtnPress()
+        {
+            HiddenWord = gameModel.PropertyMaskedWord;
+            noOfTries = "Number of tries: " + gameModel.NoOfTries.ToString();
+            OnPropertyChange(nameof(HiddenWord));
+            OnPropertyChange(nameof(noOfTries));
+            if (gameModel.HasWon)
+            {
+                MessageBox.Show("Yay!! You Won :)");
+                NewGameBtnMethod();
+            }
+            else if (gameModel.HasLost)
+            {
+                MessageBox.Show("Try again! :(");
+                NewGameBtnMethod();
+            }
+        }
         #endregion BtnsLetterMethods
 
 
@@ -352,6 +364,8 @@ namespace HangedMan.ViewModels
 
         private void DisableBtn( char character)
         {
+            character = char.ToUpper(character);
+
             switch (character)
             {
                 case 'A':
@@ -468,6 +482,8 @@ namespace HangedMan.ViewModels
 
         private void EnableBtn(char character)
         {
+            character = char.ToUpper(character);
+
             switch (character)
             {
                 case 'A':
@@ -595,22 +611,28 @@ namespace HangedMan.ViewModels
                 EnableBtn(btnlet);
             }
 
-            this.gameModel = new GameModel("LILIBAFTOASA");
+            this.gameModel = new GameModel(PickRdmString());
 
             var character = gameModel.GetFirstCharacter();
 
             DisableBtn(character);
 
             HiddenWord = gameModel.PropertyMaskedWord;
+            noOfTries = "Number of tries: " + gameModel.NoOfTries.ToString();
+
+            OnPropertyChange(nameof(noOfTries));
 
             OnPropertyChange(nameof(HiddenWord));
         }
+
+
+
+
 
         private void ExitBtnMethod()
         {
             App.Current.Shutdown();
         }
-
 
         protected void OnPropertyChange(string propertyName)
         {

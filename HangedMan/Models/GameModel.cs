@@ -46,6 +46,8 @@ namespace HangedMan.Models
 
         public void RevealCharacter(char letter)
         {
+            letter = char.ToLower(letter);
+
             List<int> IndexList = new List<int>();
 
             for (int i = 0; i < Word.Length; i++)
@@ -93,5 +95,6 @@ namespace HangedMan.Models
                 HasWon = true;
             }
         }
+
     }
 }

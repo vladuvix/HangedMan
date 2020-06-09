@@ -16,7 +16,7 @@
                 </Grid>
                 <Grid>
                     <StackPanel HorizontalAlignment="Center">
-                    <Label Content="No of tries:" Height="60" Width="200" FontSize="30" ></Label>
+                        <Label Content="{Binding noOfTries}" Height="60" Width="250" FontSize="30" ></Label>
                     <Label Content="{Binding HiddenWord}" Height="60" Width="200" FontSize="30" ></Label>
                     </StackPanel>
                 </Grid>
